@@ -5,11 +5,15 @@
     ['e1', 'e2', 'e3', 'e4'],
   ];
 
-  function extractNestedArrayPosition($arr, int $position): array {  
-    return array_column($arr, $position);
+  function extractNestedArrayPosition($arr, int $position): array {
+    $res = [];
+    foreach ($arr as $value) {
+      $res[] = $value[$position];
+    }
+    return $res;
   }
 
-  var_dump(extractNestedArrayPosition($testArr, 3));
+  var_dump(extractNestedArrayPosition($testArr, 1));
 
   function findChapters($input, string $chapter = 'b') {
     return is_string($input) ? substr_count($input, $chapter) : false;
