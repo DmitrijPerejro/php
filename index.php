@@ -6,13 +6,7 @@
   ];
 
   function extractNestedArrayPosition($arr, int $position): array {  
-    $res = [];
-
-    for ($i = 0; $i < count($arr); $i++) {
-      $res[] = $arr[$i][$position];
-    }
-    
-    return $res;
+    return array_column($arr, $position);
   }
 
   var_dump(extractNestedArrayPosition($testArr, 3));
